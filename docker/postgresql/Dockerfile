@@ -1,0 +1,4 @@
+FROM postgres:11.3
+ENV POSTGRES_PASSWORD=nodejs
+ENV POSTGRES_USER=nodejs
+ENV POSTGRES_DB=nodejs
