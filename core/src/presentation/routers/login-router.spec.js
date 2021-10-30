@@ -1,22 +1,4 @@
-class LoginRouter {
-    async route(httpRequest){
-
-        if(!httpRequest || !httpRequest.body){
-            return this.response(500, {message: "Internal error."})
-        }
-        const {password, email} = httpRequest.body;
-        if(!password || !email){
-            return this.response(400, {message: "Email or password is not provided."})
-        }
-    }
-
-    response(code, body){
-        return {
-            statusCode: code,
-            body
-        }
-    }
-}
+const LoginRouter = require('./login-router');
 
 describe('Login router', () => {
     test('Should return 500 if httpRequest has not body.', async () => {
@@ -31,7 +13,7 @@ describe('Login router', () => {
         const loginRouter = new LoginRouter();
         const httpRequest = {
             body:{
-                
+
             }
         }
         const response = await loginRouter.route(httpRequest);
