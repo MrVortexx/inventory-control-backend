@@ -19,16 +19,14 @@ class AuthUseCase {
       if (!user) {
         return null
       }
-
+      console.log('user', user)
       const compare = await this.crypter.compare(password, user.hash_passowrd)
       if (!compare) {
-        console.log('compare')
-
         return null
       }
-
+      console.log('compare', compare)
       const token = await this.crypter.generateUserToken(user.id)
-
+      await this.userRepository.updateUserAcessToken(user, token)
       return token
     } catch (e) {
 

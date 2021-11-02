@@ -1,22 +1,14 @@
 
 const AuthUseCase = require('./auth-usecase')
-const { MissingParamException, InvalidParamException } = require('../../utils/errors')
+const { InvalidParamException } = require('../../utils/errors')
+const Crypter = require('../../utils/Crypter/Crypter')
 
 class UserRepository {
   findUserByEmail (email) {
-    return {
-      email,
-      hash_password: ''
-    }
-  }
-}
-
-class Crypter {
-  async compare (password, hash) {
-
+    return false
   }
 
-  async generateUserToken (id) {
+  updateUserAcessToken (user, token) {
 
   }
 }
