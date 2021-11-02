@@ -10,10 +10,6 @@ class Crypter {
     const hash = await bcrypt.hash(string, 8)
     return hash
   }
-
-  async generateToken (payload = {}) {
-
-  }
 }
 
 module.exports = Crypter
